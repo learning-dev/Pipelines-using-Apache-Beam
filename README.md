@@ -4,7 +4,19 @@ A pipeline using Apache Beam that read a file from **Google Storage Bucket** con
 
 ## To run the file
 
+First, generate the csv file full of orders. 
+
+```
+python generate_orders.py
+
+```
+Now, that you have the csv file upload it to GCS bucket 
+
+Now, run the **csv file generator to get some data to publish through Pubsub**. Change the no_of_orders to 10ish to generatre small csv file. Also change name of the csv file in generator like **csv_pubsub.csv**
+
+
 Make sure you have google bucket, pubsub topic created and also create a table in Big Query with schema similar to that of specified in python file 
+
 
 ```
 python apache_beam.py --input_file gs://bucket-name/inputs/orders.csv \
